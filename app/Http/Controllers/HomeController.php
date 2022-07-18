@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,11 +14,12 @@ class HomeController extends Controller
     }
 
     public function about()
-    {$viewData=[];
+    {
+        $viewData=[];
         $viewData["title"]= "Quem somos - Luany Store";
         $viewData["subtitle"]= "Quem somos";
         $viewData["description"]="Esta é uma loja virtual criada para o Programa DevStart Paylivre.";
         $viewData["author"]="Desenvolvida por: Luany Boneli";
-        return view('home.about')->with("viewData",$viewData);
+        return view('home.about')->with("viewData", $viewData);
     }
 }
