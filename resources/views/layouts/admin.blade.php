@@ -19,7 +19,7 @@
 <hr />
 <ul class="nav flex-column">
     <li><a href="{{route('home.index')}}" class="nav-link text-white">-Administração-Início</a></li>
-    <li><a href="#" class="nav-link text-white">-Administração-Produtos</a></li>
+    <li><a href="{{route('admin.product.index')}}" class="nav-link text-white">-Administração-Produtos</a></li>
     <li><a href="{{route('home.index')}}" class="mt-2 btn bg-primary text-white">Voltar</a></li>
 </ul>
 </div>
