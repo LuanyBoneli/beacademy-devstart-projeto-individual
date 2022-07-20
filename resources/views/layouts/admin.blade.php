@@ -15,10 +15,11 @@
         <!--sidebar-->
         <div class="p-3 col fixed text-white bg-dark">
         <a href="{{ route('admin.home.index') }}" class="text-white text-decoration-none">
-            <span class="fs-4">Painel de administração</span> </a>
+            <span class="fs-4">Painel de administração</span> 
+        </a>
 <hr />
 <ul class="nav flex-column">
-    <li><a href="{{route('home.index')}}" class="nav-link text-white">-Administração-Início</a></li>
+    <li><a href="{{route('admin.home.index')}}" class="nav-link text-white">-Administração-Início</a></li>
     <li><a href="{{route('admin.product.index')}}" class="nav-link text-white">-Administração-Produtos</a></li>
     <li><a href="{{route('home.index')}}" class="mt-2 btn bg-primary text-white">Voltar</a></li>
 </ul>
@@ -52,5 +53,6 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
 </script>
+</body>
 
 </html>

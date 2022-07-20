@@ -63,7 +63,7 @@ class Product extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice()
+    public function setPrice($price)
     {
         $this->attributes['price']=$price;
     }
