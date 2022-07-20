@@ -18,14 +18,7 @@ class AdminProductController extends Controller{
 
     public function store(Request $request)
     {
-        $request->validate([
-            "name"=>"required|max:255",
-            "description"=>"required",
-            "price"=>"required|numeric|gt:0",
-            'image'=>'image',
-        ]);
         
-
         $newProduct= new Product();
         $newProduct->setName($request->input('name'));
         $newProduct->setDescription($request->input('description'));
@@ -62,12 +55,7 @@ class AdminProductController extends Controller{
     
     public function update(Request $request,$id)
     {
-        $request->validate([
-            "name"=>"required|max:255",
-            "description"=>"required",
-            "price"=>"required|numeric|gt:0",
-            'image'=>'image',
-        ]);
+        Product::validate($request);
 
         $product=Product::findOrFail($id);
         $product->setName($request->input('name'));
