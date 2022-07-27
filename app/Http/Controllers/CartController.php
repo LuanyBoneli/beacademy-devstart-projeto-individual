@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Pokemon;
 use App\Models\Order;
 use App\Models\Item;
 use Illuminate\Http\Request;
@@ -17,8 +17,8 @@ class CartController extends Controller
 
         $productsInSession=$request->session()->get("products");
         if($productsInSession){
-            $productsInCart=Product::findMany(array_keys($productsInSession));
-            $total=Product::sumPricesByQuantities($productsInCart,$productsInSession);
+            $productsInCart=Pokemon::findMany(array_keys($productsInSession));
+            $total=Pokemon::sumPricesByQuantities($productsInCart,$productsInSession);
         }
 
         $viewData=[];
@@ -55,7 +55,7 @@ class CartController extends Controller
             $order -> save();
 
             $total = 0;
-            $productsInCart = Product::findMany(array_keys($productsInSession));
+            $productsInCart = Pokemon::findMany(array_keys($productsInSession));
             foreach ($productsInCart as $product){
                 $quantity = $productsInSession [$product -> getId()];
                 $item = new Item();

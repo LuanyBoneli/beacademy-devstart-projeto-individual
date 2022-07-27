@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");
-Route::get('/products','App\Http\Controllers\ProductController@index')->name("product.index");
-Route::get('/products/{id}','App\Http\Controllers\ProductController@show')->name("product.show");
+Route::get('/pokemons','App\Http\Controllers\PokemonController@index')->name("pokemon.index");
+Route::get('/pokemons/{id}','App\Http\Controllers\PokemonController@show')->name("pokemon.show");
 
 Route::get('/cart','App\Http\Controllers\CartController@index')->name("cart.index");
 Route::get('/cart/delete','App\Http\Controllers\CartController@delete')->name("cart.delete");
@@ -18,11 +18,11 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('admin')->group(function(){
     Route::get('/admin','App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
-    Route::get('/admin/products','App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
-    Route::post('/admin/products/store','App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
-    Route::delete('/admin/products/{id}/delete','Add\Http\Controller\Admin\AdminProductController@delete')->name("admin.product.delete");
-    Route::get('/admin/products/{id}/edit','App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
-    Route::put('/admin/products/{id}/update','App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
+    Route::get('/admin/pokemons','App\Http\Controllers\Admin\AdminPokemonController@index')->name("admin.pokemon.index");
+    Route::post('/admin/pokemons/store','App\Http\Controllers\Admin\AdminPokemonController@store')->name("admin.pokemon.store");
+    Route::delete('/admin/pokemons/{id}/delete','Add\Http\Controller\Admin\AdminPokemonController@delete')->name("admin.pokemon.delete");
+    Route::get('/admin/pokemons/{id}/edit','App\Http\Controllers\Admin\AdminPokemonController@edit')->name("admin.pokemon.edit");
+    Route::put('/admin/pokemons/{id}/update','App\Http\Controllers\Admin\AdminPokemonController@update')->name("admin.pokemon.update");
 });
 
 Auth::routes();

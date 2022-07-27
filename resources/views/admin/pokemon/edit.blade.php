@@ -3,7 +3,7 @@
 @section('content')
 <div class="card mb-4">
     <div class="card-header">
-        Edit Product
+        Edit Pokemon
     </div>
     <div class="card-body">
         @if($errors->any())
@@ -13,7 +13,7 @@
             @endforeach
         </ul>
         @endif
-        <form method="POST" action="{{ route('admin.product.update', ['id'=> $viewData['product']->getId()]) }}"
+        <form method="POST" action="{{ route('admin.pokemon.update', ['id'=> $viewData['pokemon']->getId()]) }}"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -22,7 +22,7 @@
                     <div class="mb-3 row">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Name:</label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="name" value="{{ $viewData['product']->getName() }}" type="text"
+                            <input name="name" value="{{ $viewData['pokemon']->getName() }}" type="text"
                                 class="form-control">
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="mb-3 row">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Price:</label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="price" value="{{ $viewData['product']->getPrice() }}" type="number"
+                            <input name="price" value="{{ $viewData['pokemon']->getPrice() }}" type="number"
                                 class="form-control">
                         </div>
                     </div>
@@ -53,7 +53,7 @@
             <div class="mb-3">
                 <label class="form-label">Description</label>
                 <textarea class="form-control" name="description"
-                    rows="3">{{ $viewData['product']->getDescription() }}</textarea>
+                    rows="3">{{ $viewData['pokemon']->getDescription() }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>

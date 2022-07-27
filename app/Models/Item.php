@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Order;
-use App\Models\Product;
+use App\Models\Pokemon;
 
 class Item extends Model
 {
@@ -14,11 +14,11 @@ class Item extends Model
      * $this -> attributes ['quantity']- int - contains the item quantity
      * $this -> attributes ['price'] - int- contains the price
      * $this -> attributes ['order_id'] - int - contains the referenced order id
-     * $this -> attributes ['product_id']- int- contains the referenced product id
+     * $this -> attributes ['pokemon_id']- int- contains the referenced pokemon id
      * $this -> attributes ['created_id'] - timestamp - contains the item creation date
      * $this -> attributes ['updated_id'] - timestamp- contains the item update date
      * $this -> order - Order- contains the associated Order
-     * $this -> product - Product - contains the associated Product 
+     * $this -> pokemon - Pokemon - contains the associated Pokemon
      */
 
      public static function validate($request)
@@ -26,7 +26,7 @@ class Item extends Model
         $request -> validate([
             "price" => "required|numeric|gt:0",
             "quantity" => "required|numeric|gt:0",
-            "product_id" => "required|exists:products,id",
+            "pokemon_id" => "required|exists:pokemons,id",
             "order_id" => "required|exists:orders,id",
         ]);
      }
@@ -71,14 +71,14 @@ class Item extends Model
         $this -> attributes ['order_id'] = $orderId;
      }
 
-     public function getProductId()
+     public function getPokemonId()
      {
-        return $this -> attributes['product_id'];
+        return $this -> attributes['pokemon_id'];
      }
 
-     public function setProductId($productId)
+     public function setPokemonId($pokemonId)
      {
-        $this -> attributes ['product_id'] = $productId;
+        $this -> attributes ['pokemon_id'] = $pokemonId;
      }
 
      public function getCreatedAt()
@@ -116,19 +116,19 @@ class Item extends Model
         $this -> order = $order;
      }
 
-     public function product()
+     public function pokemon()
      {
-        return $this -> belongsTo (Product::class);
+        return $this -> belongsTo (Pokemon::class);
      }
 
-     public function getProduct()
+     public function getPokemon()
      {
-        return $this -> product;
+        return $this -> pokemon;
      }
 
-     public function setProduct($product)
+     public function setPokemon($pokemon)
      {
-        $this -> product = $product;
+        $this -> pokemon = $pokemon;
      }
 }
 
