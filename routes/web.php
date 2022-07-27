@@ -11,13 +11,18 @@ Route::get('/cart','App\Http\Controllers\CartController@index')->name("cart.inde
 Route::get('/cart/delete','App\Http\Controllers\CartController@delete')->name("cart.delete");
 Route::post('/cart/add/{id}','App\Http\Controllers\CartController@add')->name("cart.add");
 
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+    Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders");
+});
+
 Route::middleware('admin')->group(function(){
-Route::get('/admin','App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
-Route::get('/admin/products','App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
-Route::post('/admin/products/store','App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
-Route::delete('/admin/products/{id}/delete','Add\Http\Controller\Admin\AdminProductController@delete')->name("admin.product.delete");
-Route::get('/admin/products/{id}/edit','App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
-Route::put('/admin/products/{id}/update','App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
+    Route::get('/admin','App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
+    Route::get('/admin/products','App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
+    Route::post('/admin/products/store','App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
+    Route::delete('/admin/products/{id}/delete','Add\Http\Controller\Admin\AdminProductController@delete')->name("admin.product.delete");
+    Route::get('/admin/products/{id}/edit','App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
+    Route::put('/admin/products/{id}/update','App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
 });
 
 Auth::routes();

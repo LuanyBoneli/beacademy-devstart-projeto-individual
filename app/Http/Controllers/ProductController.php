@@ -10,8 +10,8 @@ class ProductController extends Controller
     public function index()
     {
         $viewData=[];
-        $viewData["title"]="Produtos - Luany Store";
-        $viewData["subtitle"]="Lista de produtos";
+        $viewData["title"]="Pokemons - Poke Store";
+        $viewData["subtitle"]="Lista de Pokemon";
         $viewData["products"]= Product::all();
         return view('product.index')->with("viewData",$viewData);
     }
@@ -20,8 +20,8 @@ class ProductController extends Controller
     {
        $viewData=[];
        $product=Product::findOrFail($id);
-       $viewData["title"]=$product->getName()."-Luany Store";
-       $viewData["subtitle"]=$product->getName()."-Informações do Produto";
+       $viewData["title"]=$product->getName()."-Poke Store";
+       $viewData["subtitle"]=$product->getName()."-Informações do Pokemon";
        $viewData["product"]=$product;
        return view('product.show')->with("viewData",$viewData); 
     }

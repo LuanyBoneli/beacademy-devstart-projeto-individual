@@ -31,12 +31,14 @@
         <div class="row">
             <div class="text-end">
                 <a class="btn btn-outline-secundary mb-2"><b>Total a pagar:</b>${{$viewData["total"]}}</a>
-                <a class="btn bg-primary text-white mb-2">Compra</a>
+                @if (count($viewData["products"])>0)
+                <a href = "{{route('cart.purchase')}}" class="btn bg-primary text-white mb-2">Compra</a>
                 <a href="{{route('cart.delete')}}">
                     <button class="btn btn-danger mb-2">
                         Remover todos os produtos do carrinho
                     </button>
                 </a>
+                @endif
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ class AdminProductController extends Controller{
     public function index()
     {
         $viewData=[];
-        $viewData["title"]="Administração - Produtos- Luany Store";
+        $viewData["title"]="Administração - Pokemon- Poke Store";
         $viewData["products"]=Product::all();
         return view ('admin.product.index')->with("viewData",$viewData);
     }
@@ -23,7 +23,7 @@ class AdminProductController extends Controller{
         $newProduct->setName($request->input('name'));
         $newProduct->setDescription($request->input('description'));
         $newProduct->setPrice($request->input('price'));
-        $newProduct->setImage("game.png");
+        $newProduct->setImage("pikachu.png");
         $newProduct->save();
 
         if($request->hasFile('image')){
@@ -48,7 +48,7 @@ class AdminProductController extends Controller{
     public function edit($id)
     {
         $viewData=[];
-        $viewData["title"]="Página Admin-Editar Produto-Luany Store";
+        $viewData["title"]="Página Admin-Editar Pokemon - Poke Store";
         $viewData["product"]=Product::findOrFail($id);
         return view('admin.product.edit')->with("viewData",$viewData);
     } 
@@ -68,7 +68,7 @@ class AdminProductController extends Controller{
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
             );
-            $product->setImage(imageName);
+            $product->setImage('imageName');
         }
         $product->save();
         return redirect()->route('admin.product.index');

@@ -19,6 +19,17 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->integer('price');
+            $table->float('height');
+            $table->float('weight');
+            $table->string('category');
+            $table->string('abilities');
+            $table->string('gender');
+            $table->integer('hp');
+            $table->integer('attack');
+            $table->integer('defense');
+            $table->integer('special attack');
+            $table->integer('special defense');
+            $table->integer('speed');
             $table->timestamps();
         });
     }

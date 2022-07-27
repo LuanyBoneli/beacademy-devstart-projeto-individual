@@ -5,7 +5,7 @@
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
-           <img src="{{asset('/storage/'.$viewData["product"]->getImage()) }}" class="img-fluid rounded-start">
+           <img src="{{asset('/img/'.$viewData["product"]->getImage()) }}" class="img-fluid rounded-start">
         </div>
         <div class="col-md-8">
         <div class="card-body">
@@ -24,7 +24,7 @@
     </div>
 </div>
                         <div class="col-auto">
-                                <button class="btn bg-primary text-white" type="submit">Add ao Carrinho</button>
+                                <button class="btn bg-primary text-white" type="submit">Add a Pokebola</button>
                         </div>
                     </div>
                 </form>
