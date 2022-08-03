@@ -5,7 +5,7 @@
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{{asset('/storage/'.$viewData["pokemon"]->getImage()) }}" class="img-fluid rounded-start">
+            <img src="{{'https://assets.pokemon.com/assets/cms2/img/pokedex/full/'.$viewData["pokemon"]->getImage() }}" class="img-fluid rounded-start">
         </div>
         <div class="col-md-8">
             <div class="card-body">
