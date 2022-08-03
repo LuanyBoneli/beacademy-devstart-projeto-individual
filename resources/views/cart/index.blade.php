@@ -18,12 +18,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($viewData["products"] as $product)
+                @foreach ($viewData["pokemons"] as $pokemon)
                 <tr>
-                    <td>{{ $product->getId() }}</td>
-                    <td>{{ $product->getName() }}</td>
-                    <td>{{ $product->getPrice()}}</td>
-                    <td>{{session('products')[$product->getId()]}}</td>
+                    <td>{{ $pokemon->getId() }}</td>
+                    <td>{{ $pokemon->getName() }}</td>
+                    <td>{{ $pokemon->getPrice()}}</td>
+                    <td>{{session('pokemons')[$pokemon->getId()]}}</td>
                 </tr>
                 @endforeach
             </tbody>
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="text-end">
                 <a class="btn btn-outline-secundary mb-2"><b>Total a pagar:</b>${{$viewData["total"]}}</a>
-                @if (count($viewData["products"])>0)
+                @if (count($viewData["pokemons"])>0)
                 <a href = "{{route('cart.purchase')}}" class="btn bg-primary text-white mb-2">Compra</a>
                 <a href="{{route('cart.delete')}}">
                     <button class="btn btn-danger mb-2">

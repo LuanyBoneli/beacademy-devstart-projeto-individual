@@ -13,58 +13,58 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $total = 0;
-        $productsInCart=[];
+        $pokemonsInCart=[];
 
-        $productsInSession=$request->session()->get("products");
-        if($productsInSession){
-            $productsInCart=Pokemon::findMany(array_keys($productsInSession));
-            $total=Pokemon::sumPricesByQuantities($productsInCart,$productsInSession);
+        $pokemonsInSession=$request->session()->get("pokemons");
+        if($pokemonsInSession){
+            $pokemonsInCart=Pokemon::findMany(array_keys($pokemonsInSession));
+            $total=Pokemon::sumPricesByQuantities($pokemonsInCart,$pokemonsInSession);
         }
 
         $viewData=[];
         $viewData ["title"]="Carrinho";
         $viewData["subtitle"]="Carrinho de compras";
         $viewData ["total"]=$total;
-        $viewData["products"]=$productsInCart;
+        $viewData["pokemons"]=$pokemonsInCart;
         return view ('cart.index')->with("viewData",$viewData);
     }
 
     public function add(Request $request,$id)
     {
-        $products=$request->session()->get("products");
-        $products[$id]=$request->input('quantity');
-        $request->session()->put('products',$products);
+        $pokemons=$request->session()->get("pokemons");
+        $pokemons[$id]=$request->input('quantity');
+        $request->session()->put('pokemons',$pokemons);
 
         return redirect()->route('cart.index');
     }
 
     public function delete(Request $request)
     {
-        $request->session()->forget('products');
+        $request->session()->forget('pokemons');
         return back();
     }
 
     public function purchase (Request $request)
     {
-        $productsInSession = $request -> session() -> get("products");
-        if ($productsInSession){
-            $userId = Auth::user()->getId;
+        $pokemonsInSession = $request -> session() -> get("pokemons");
+        if ($pokemonsInSession){
+            $userId = Auth::user()->getId();
             $order = new Order();
             $order -> setUserId ($userId);
             $order -> setTotal(0);
             $order -> save();
 
             $total = 0;
-            $productsInCart = Pokemon::findMany(array_keys($productsInSession));
-            foreach ($productsInCart as $product){
-                $quantity = $productsInSession [$product -> getId()];
+            $pokemonsInCart = Pokemon::findMany(array_keys($pokemonsInSession));
+            foreach ($pokemonsInCart as $pokemon){
+                $quantity = $pokemonsInSession [$pokemon -> getId()];
                 $item = new Item();
                 $item -> setQuantity ($quantity);
-                $item -> setPrice ($product -> getPrice());
-                $item -> setProductId ($product -> getId());
+                $item -> setPrice ($pokemon -> getPrice());
+                $item -> setPokemonId ($pokemon -> getId());
                 $item -> setOrderId ($order -> getId());
                 $item -> save();
-                $total = $total + ($product -> getPrice()*$quantity);
+                $total = $total + ($pokemon -> getPrice()*$quantity);
             }
 
             $order -> setTotal ($total);
@@ -74,7 +74,7 @@ class CartController extends Controller
             Auth::user() -> setBalance ($newBalance);
             Auth::user() -> save();
 
-            $request -> session() -> forget ('products');
+            $request -> session() -> forget ('pokemons');
 
             $viewData = [];
             $viewData ["title"] = "Compra";

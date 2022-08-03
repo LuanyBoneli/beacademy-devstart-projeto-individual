@@ -6,11 +6,11 @@
 @forelse ($viewData["orders"] as $order)
 <div class="card mb-4">
     <div class="card-header">
-        Pedidos #{{$order -> getId()}}
+        Pedidos #{{ $order->getId() }}
 </div>
 <div class = "card-body">
-    <b>Data:</b> {{$order -> getCreatedAt()}}<br/>
-    <b>Total:</b> $ {{$order -> getTotal()}}<br/>
+    <b>Data:</b> {{ $order->getCreatedAt() }}<br/>
+    <b>Total:</b> R${{$order->getTotal() }}<br/>
     <table class="table table-bordered table-striped text-center mt-3">
         <thead>
             <tr>
@@ -21,16 +21,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($order -> getItems() as $item)
+            @foreach ($order->getItems() as $item)
             <tr>
-                <td>{{$item -> getId()}}</td>
+                <td>{{ $item->getId() }}</td>
                 <td> 
-                    <a class = "link-success" href="{{route ('product.show', ['id' => $item -> getProduct() -> getId])}}">
-                        {{$item -> getProduct() -> getName()}}
+                    <a class = "link-success" href="{{route ('pokemon.show', ['id'=> $item->getpokemon()->getId()]) }}">
+                        {{ $item->getpokemon()->getName() }}
                     </a>
                 </td>
-                <td> $ {{$item -> getPrice()}}</td>
-                <td> {{$item -> getQuantity()}}</td>
+                <td> $ {{ $item->getPrice() }}</td>
+                <td> {{ $item->getQuantity() }}</td>
             </tr>
             @endforeach
 </tbody>

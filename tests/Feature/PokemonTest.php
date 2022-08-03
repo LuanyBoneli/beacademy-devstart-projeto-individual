@@ -3,18 +3,19 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class PokemonTest extends TestCase
 {
     /**
-     * A basic test example.
+     * A basic feature test example.
      *
      * @return void
      */
-    public function test_the_application_returns_a_successful_response()
+    public function test_pokemon()
     {
-        $response = $this->get('/');
+        $response = $this->get('/pokemons');
 
         $response->assertStatus(200);
     }

@@ -20,7 +20,7 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin','App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
     Route::get('/admin/pokemons','App\Http\Controllers\Admin\AdminPokemonController@index')->name("admin.pokemon.index");
     Route::post('/admin/pokemons/store','App\Http\Controllers\Admin\AdminPokemonController@store')->name("admin.pokemon.store");
-    Route::delete('/admin/pokemons/{id}/delete','Add\Http\Controller\Admin\AdminPokemonController@delete')->name("admin.pokemon.delete");
+    Route::delete('/admin/pokemons/{id}/delete','App\Http\Controllers\Admin\AdminPokemonController@delete')->name("admin.pokemon.delete");
     Route::get('/admin/pokemons/{id}/edit','App\Http\Controllers\Admin\AdminPokemonController@edit')->name("admin.pokemon.edit");
     Route::put('/admin/pokemons/{id}/update','App\Http\Controllers\Admin\AdminPokemonController@update')->name("admin.pokemon.update");
 });

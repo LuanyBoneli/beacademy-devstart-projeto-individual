@@ -118,7 +118,7 @@ class Item extends Model
 
      public function pokemon()
      {
-        return $this -> belongsTo (Pokemon::class);
+        return $this -> belongsTo(Pokemon::class);
      }
 
      public function getPokemon()

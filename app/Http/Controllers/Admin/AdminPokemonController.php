@@ -7,12 +7,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class AdminPokemonController extends Controller{
+class AdminPokemonController extends Controller
+{
     public function index()
     {
         $viewData=[];
         $viewData["title"]="Administração - Pokemon- Poke Store";
-        $viewData["pokemons"]=Pokemon::all();
+        $viewData["pokemons"]= Pokemon::all();
         return view ('admin.pokemon.index')->with("viewData",$viewData);
     }
 
@@ -23,7 +24,18 @@ class AdminPokemonController extends Controller{
         $newPokemon->setName($request->input('name'));
         $newPokemon->setDescription($request->input('description'));
         $newPokemon->setPrice($request->input('price'));
-        $newPokemon->setImage("pikachu.png");
+        $newPokemon->setImage($request->file('image'));
+        $newPokemon->setCategory($request->input('category'));
+        $newPokemon->setHeight($request->input('height'));
+        $newPokemon->setWeight($request->input('weight'));
+        $newPokemon->setAbilities($request->input('abilities'));
+        $newPokemon->setGender($request->input('gender'));
+        $newPokemon->setHp($request->input('hp'));
+        $newPokemon->setAttack($request->input('attack'));
+        $newPokemon->setDefense($request->input('defense'));
+        $newPokemon->setSpecialAttack($request->input('special_attack'));
+        $newPokemon->setSpecialDefense($request->input('special_defense'));
+        $newPokemon->setSpeed($request->input('speed'));
         $newPokemon->save();
 
         if($request->hasFile('image')){
