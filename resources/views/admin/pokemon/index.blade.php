@@ -47,23 +47,23 @@
                 <div class="col">
                     <div class="mb-3 row">
                         <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Peso:</label>
-                        <div class="col-lg-9 col-md-6 col-sm-12">
+                        <div class="col-lg-8 col-md-6 col-sm-12">
                             <input name="weight" value="{{old('weight')}}" type="number" class="form-control">
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Categoria:</label>
-                        <div class="col-lg-9 col-md-6 col-sm-12">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Categoria:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
                             <input name="category" value="{{old('category')}}" type="text" class="form-control">
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Habilidades:</label>
-                        <div class="col-lg-9 col-md-6 col-sm-12">
+                        <label class="col-lg-5 col-md-6 col-sm-12 col-form-label">Habilidades:</label>
+                        <div class="col-lg-7 col-md-6 col-sm-12">
                             <input name="abilities" value="{{old('abilities')}}" type="text" class="form-control">
                         </div>
                     </div>
@@ -98,8 +98,8 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Ataque Especial:</label>
-                        <div class="col-lg-9 col-md-6 col-sm-12">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Ataque Especial:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
                             <input name="special_attack" value="{{old('special_attack')}}" type="number"
                                 class="form-control">
                         </div>
@@ -107,8 +107,8 @@
                 </div>
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Defesa Especial:</label>
-                        <div class="col-lg-9 col-md-6 col-sm-12">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Defesa Especial:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
                             <input name="special_defense" value="{{old('special_defense')}}" type="number"
                                 class="form-control">
                         </div>
@@ -116,8 +116,8 @@
                 </div>
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Velocidade:</label>
-                        <div class="col-lg-9 col-md-6 col-sm-12">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Velocidade:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
                             <input name="speed" value="{{old('speed')}}" type="number" class="form-control">
                         </div>
                     </div>
@@ -133,8 +133,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div class="col">
                         <div class="mb-3 row">
                             <label for="image" class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>
                             <div class="col-lg-10 col-md-6 col-sm-12">
@@ -142,7 +141,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
                 <div class="mb-3">
                     <label class="form-label">Descrição</label>
                     <textarea class="form-control" name="description" rows="3">{{old('description')}}</textarea>
@@ -173,7 +172,7 @@
                 <td>{{$pokemon->getName()}}</td>
                 <td>
                     <a class="btn btn-primary" href="{{route('admin.pokemon.edit',['id'=>$pokemon->getId()])}}">
-                        <i class="bi-pencil"></i>
+                        <i class="bi bi-pencil"></i>
                     </a>
                 </td>
                 <td>
@@ -181,7 +180,7 @@
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger">
-                            <i class="bi-trash"></i>
+                            <i class="bi bi-trash"></i>
                         </button>
                     </form>
                 </td>

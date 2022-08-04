@@ -63,7 +63,7 @@
                 Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
                     href="https://www.linkedin.com/in/luany-boneli-40a827230/">
                     Luany Boneli
-                </a> - <b>Luany Boneli</b>
+                </a> - <b>DevStart - Paylivre - Be Academy</b>
             </small>
         </div>
     </div>

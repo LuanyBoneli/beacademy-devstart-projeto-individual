@@ -11,8 +11,8 @@ class MyAccountController extends Controller
     public function orders()
     {
         $viewData = [];
-        $viewData["title"] = "My Orders - Online Store";
-        $viewData["subtitle"] =  "My Orders";
+        $viewData["title"] = "Pedidos";
+        $viewData["subtitle"] =  "Meus Pedidos";
         $viewData["orders"] = Order::with(['items.pokemon'])->where('user_id', Auth::user()->getId())->get();
         return view('myaccount.orders')->with("viewData", $viewData);
     }

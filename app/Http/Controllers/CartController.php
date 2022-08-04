@@ -22,8 +22,8 @@ class CartController extends Controller
         }
 
         $viewData=[];
-        $viewData ["title"]="Carrinho";
-        $viewData["subtitle"]="Carrinho de compras";
+        $viewData ["title"]="Pokebola";
+        $viewData["subtitle"]="Pokebola";
         $viewData ["total"]=$total;
         $viewData["pokemons"]=$pokemonsInCart;
         return view ('cart.index')->with("viewData",$viewData);

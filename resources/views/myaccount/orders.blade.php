@@ -29,7 +29,7 @@
                         {{ $item->getpokemon()->getName() }}
                     </a>
                 </td>
-                <td> $ {{ $item->getPrice() }}</td>
+                <td> R$ {{ $item->getPrice() }}</td>
                 <td> {{ $item->getQuantity() }}</td>
             </tr>
             @endforeach
