@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">
-                    {{$viewData["pokemon"]->getName()}}(${{$viewData["pokemon"]->getPrice()}})
+                    {{$viewData["pokemon"]->getName()}}(R${{$viewData["pokemon"]->getPrice()}})
                 </h5>
                 <p class="card-text">{{$viewData["pokemon"]->getDescription()}}</p>
                 <table class="table table-striped">
