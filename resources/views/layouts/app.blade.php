@@ -47,7 +47,7 @@
 
     <header class="masthead bg-primary text-black text-center py-4">
         <div class="container d-flex aligin-items-center flex-column">
-            <h2>@yield('subtitle','Pokemon - Loja Virtual')</h2>
+            <h2>@yield('subtitle','Bem vindo à PokeStore')</h2>
         </div>
     </header>
     <!--header-->
