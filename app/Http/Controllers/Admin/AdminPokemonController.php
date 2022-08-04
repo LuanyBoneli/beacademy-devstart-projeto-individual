@@ -44,7 +44,7 @@ class AdminPokemonController extends Controller
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
             );
-            $newPokemon->setImage($imageName);
+            $newPokemon->setImage($request->file('image')->getClientOriginalName());
             $newPokemon->save();
         }
 
