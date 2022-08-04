@@ -20,11 +20,12 @@ class AdminPokemonController extends Controller
     public function store(Request $request)
     {
 
+        dd($request->file('image')->getClientOriginalName());
         $newPokemon= new Pokemon();
         $newPokemon->setName($request->input('name'));
         $newPokemon->setDescription($request->input('description'));
         $newPokemon->setPrice($request->input('price'));
-        $newPokemon->setImage($request->file('image'));
+        $newPokemon->setImage($request->file('image')->getClientOriginalName());
         $newPokemon->setCategory($request->input('category'));
         $newPokemon->setHeight($request->input('height'));
         $newPokemon->setWeight($request->input('weight'));
